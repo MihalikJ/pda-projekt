@@ -12,7 +12,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="panel panel-default">
-				<div class="panel-heading"><?php echo $action; ?> Countries <a href="<?php echo site_url('country/'); ?>" class="glyphicon glyphicon-arrow-left pull-right"></a></div>
+				<div class="panel-heading"><?php echo $action; ?> Country <a href="<?php echo site_url('country/'); ?>" class="glyphicon glyphicon-arrow-left pull-right"></a></div>
 				<div class="panel-body">
 					<form method="post" action="" class="form">
 						<div class="form-group">

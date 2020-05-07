@@ -9,7 +9,7 @@
 					<p><?php echo !empty($country['id'])?$country['id']:''; ?></p>
 				</div>
 				<div class="form-group">
-					<label>Meno:</label>
+					<label>Country:</label>
 					<p><?php echo !empty($country['country'])?$country['country']:''; ?></p>
 				</div>
 			</div>

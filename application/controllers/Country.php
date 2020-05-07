@@ -29,7 +29,7 @@ class Country extends CI_Controller {
 		$data['nazov'] = 'Zoznam študentov';
 		//nahratie zoznamu studentov
 		$this->load->view('templates/header', $data);
-		$this->load->view('studenti/index', $data);
+		$this->load->view('country/index', $data);
 		$this->load->view('templates/footer');
 	}
 
@@ -51,18 +51,18 @@ class Country extends CI_Controller {
 			//validacia zaslanych dat
 			if($this->form_validation->run() == true){
 				//vlozenie dat
-				$insert = $this->Studenti_model->insert($postData);
+				$insert = $this->Country_model->insert($postData);
 
 				if($insert){
-					$this->session->set_userdata('success_msg', 'Záznam o študentovi bol úspešne vložený');
+					$this->session->set_userdata('success_msg', 'Country record successfully inserted');
 					redirect('/country');
 				}else{
-					$data['error_msg'] = 'Nastal problém.';
+					$data['error_msg'] = 'Oooopsie.';
 				}
 			}
 		}
 		$data['post'] = $postData;
-		$data['title'] = 'Pridať študenta';
+		$data['title'] = 'Add country';
 		$data['action'] = 'add';
 
 		//zobrazenie formulara pre vlozenie a editaciu dat
@@ -93,10 +93,10 @@ class Country extends CI_Controller {
 				$update = $this->Country_model->update($postData, $id);
 
 				if($update){
-					$this->session->set_userdata('success_msg', 'Záznam o študentovi bol aktualizovaný.');
+					$this->session->set_userdata('success_msg', 'Country record was updated');
 					redirect('/country');
 				}else{
-					$data['error_msg'] = 'Nastal problém.';
+					$data['error_msg'] = 'Oooopsie.';
 				}
 			}
 		}
@@ -104,7 +104,7 @@ class Country extends CI_Controller {
 		//$data['users'] = $this->Temperatures_model->get_users_dropdown();
 		//	$data['users_selected'] = $postData['user'];
 		$data['post'] = $postData;
-		$data['title'] = 'Aktualizovať údaje';
+		$data['title'] = 'Update data';
 		$data['action'] = 'edit';
 
 		//zobrazenie formulara pre vlozenie a editaciu dat
@@ -121,7 +121,9 @@ class Country extends CI_Controller {
 		//kontrola, ci bolo zaslane id riadka
 		if(!empty($id)){
 			$data['country'] = $this->Country_model->ShowCountries($id);
-			//$data['title'] = $data['country']. ' ' . $data['studenti']['meno'];
+			$data['title'] = $data['country']['country'];
+			//priklad zretazenia
+			//$data['title'] = $data['studenti']['priezvisko'] . ' ' . $data['studenti']['meno'];
 
 			//nahratie detailu zaznamu
 			$this->load->view('templates/header', $data);
@@ -140,9 +142,9 @@ class Country extends CI_Controller {
 			$delete = $this->Country_model->delete($id);
 
 			if($delete){
-				$this->session->set_userdata('success_msg', 'Záznam bol odstránený.');
+				$this->session->set_userdata('success_msg', 'The record was deleted.');
 			}else{
-				$this->session->set_userdata('error_msg', 'Záznam sa nepodarilo odstrániť.');
+				$this->session->set_userdata('error_msg', 'The record could not be deleted.');
 			}
 		}
 

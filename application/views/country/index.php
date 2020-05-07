@@ -20,7 +20,7 @@
 					<tr>
 						<th width="20%">ID</th>
 						<th width="30%">Country</th>
-						<th width="20%">Akcia</th>
+						<th width="20%">Action</th>
 					</tr>
 					</thead>
 					<tbody id="userData">
