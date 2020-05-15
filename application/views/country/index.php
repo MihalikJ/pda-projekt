@@ -18,24 +18,24 @@
 				<table class="table striped">
 					<thead>
 					<tr>
-						<th width="20%">ID</th>
-						<th width="30%">Country</th>
-						<th width="20%">Action</th>
+						<th width="30%">ID</th>
+						<th width="40%">Country</th>
+						<th width="30%">Action</th>
 					</tr>
 					</thead>
 					<tbody id="userData">
 					<?php if(!empty($country)): foreach($country as $country): ?>
 						<tr>
-							<td><?php echo '#'.$country['id']; ?></td>
+							<td><?php echo '#'.$country['idcountry']; ?></td>
 							<td><?php echo $country['country']; ?></td>
 							<td>
-								<a href="<?php echo site_url('country/view/'.$country['id']); ?>"class="glyphicon glyphicon-eye-open"></a>
-								<a href="<?php echo site_url('country/edit/'.$country['id']); ?>"class="glyphicon glyphicon-edit"></a>
-								<a href="<?php echo site_url('country/delete/'.$country['id']); ?>"class="glyphicon glyphicon-trash" onclick="return confirm('Are you sure to delete?')"></a>
+								<a href="<?php echo site_url('country/view/'.$country['idcountry']); ?>"class="glyphicon glyphicon-eye-open"></a>
+								<a href="<?php echo site_url('country/edit/'.$country['idcountry']); ?>"class="glyphicon glyphicon-edit"></a>
+								<a href="<?php echo site_url('country/delete/'.$country['idcountry']); ?>"class="glyphicon glyphicon-trash" onclick="return confirm('Are you sure to delete?')"></a>
 							</td>
 						</tr>
 					<?php endforeach; else: ?>
-						<tr><td colspan="4">Žiadni študenti ......</td></tr>
+						<tr><td colspan="4">No countries, add some ☺</td></tr>
 					<?php endif; ?>
 					</tbody>
 				</table>

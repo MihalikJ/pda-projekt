@@ -20,7 +20,7 @@
 							<input type="text" class="form-control" name="country" id="country" placeholder="Enter country" value="<?php echo !empty($post['country'])?$post['country']:''; ?>">
 							<?php echo form_error('meno','<p class="help-block text-danger">','</p>'); ?>
 						</div>
-						<input type="submit" name="postSubmit" class="btn btn-primary" value="Poslať"/>
+						<input type="submit" name="postSubmit" class="btn btn-primary" value="Send"/>
 					</form>
 				</div>
 			</div>

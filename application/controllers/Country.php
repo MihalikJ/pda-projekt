@@ -11,8 +11,10 @@ class Country extends CI_Controller {
 		$this->load->model('Country_model');
 	}
 
+
 	public function index(){
 		$data = array();
+		$data['title'] = 'Countries';
 
 		//ziskanie sprav zo session
 		if($this->session->userdata('success_msg')){
@@ -150,4 +152,5 @@ class Country extends CI_Controller {
 
 		redirect('/country');
 	}
+
 }

@@ -8,7 +8,7 @@ class Country_model extends CI_Model {
 
 	function ShowCountries($id="") {
 		if(!empty($id)){
-			$query = $this->db->get_where('country', array('id' => $id));
+			$query = $this->db->get_where('country', array('idcountry' => $id));
 			return $query->row_array();
 		}else{
 			$query = $this->db->get('country');
@@ -30,7 +30,7 @@ class Country_model extends CI_Model {
 	// aktualizacia zaznamu
 	public function update($data, $id) {
 		if(!empty($data) && !empty($id)){
-			$update = $this->db->update('country', $data, array('id'=>$id));
+			$update = $this->db->update('country', $data, array('idcountry'=>$id));
 			return $update?true:false;
 		}else{
 			return false;
@@ -39,7 +39,7 @@ class Country_model extends CI_Model {
 
 	// odstranenie zaznamu
 	public function delete($id){
-		$delete = $this->db->delete('country',array('id'=>$id));
+		$delete = $this->db->delete('country',array('idcountry'=>$id));
 		return $delete?true:false;
 	}
 

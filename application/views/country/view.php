@@ -6,7 +6,7 @@
 			<div class="panel-body">
 				<div class="form-group">
 					<label>ID:</label>
-					<p><?php echo !empty($country['id'])?$country['id']:''; ?></p>
+					<p><?php echo !empty($country['idcountry'])?$country['idcountry']:''; ?></p>
 				</div>
 				<div class="form-group">
 					<label>Country:</label>
