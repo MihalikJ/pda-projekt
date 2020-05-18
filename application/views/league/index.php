@@ -15,7 +15,10 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="panel panel-default ">
-				<div class="panel-heading">List of leagues <a href="<?php echo site_url('league/add/'); ?>" class="glyphicon glyphicon-plus pull-right" ></a></div>
+				<div class="panel-heading">List of leagues
+					<a href="<?php echo site_url('league/add/'); ?>" class="glyphicon glyphicon-plus pull-right" ></a>
+					<a href="<?php echo site_url('country/'); ?>" class="glyphicon glyphicon-arrow-left pull-left" ></a>
+				</div>
 				<table class="table striped">
 					<thead>
 					<tr>
@@ -32,6 +35,7 @@
 							<td><?php echo $league['name']; ?></td>
 							<td><?php echo $league['country']; ?></td>
 							<td>
+								<a href="<?php echo site_url('team/'.$league['idleague']); ?>"class="glyphicon glyphicon-menu-hamburger"></a>
 								<a href="<?php echo site_url('league/view/'.$league['idleague']); ?>"class="glyphicon glyphicon-eye-open"></a>
 								<a href="<?php echo site_url('league/edit/'.$league['idleague']); ?>"class="glyphicon glyphicon-edit"></a>
 								<a href="<?php echo site_url('league/delete/'.$league['idleague']); ?>"class="glyphicon glyphicon-trash" onclick="return confirm('Are you sure to delete?')"></a>

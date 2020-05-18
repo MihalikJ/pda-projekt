@@ -9,12 +9,14 @@
 		</div>
 	<?php } ?>
 	<div class="row">
-		<h1>List of countries</h1>
+		<h1>Welcome to Football League Overview page. </h1>
+		<h1>Select a country and start browsing the leagues!</h1>
+		<h2>List of countries :</h2>
 	</div>
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="panel panel-default ">
-				<div class="panel-heading">Countries <a href="<?php echo site_url('country/add/'); ?>" class="glyphicon glyphicon-plus pull-right" ></a></div>
+				<div class="panel-heading">Countries <a href="<?php echo site_url('country/add/'); ?>" class="glyphicon glyphicon-plus-sign pull-right" ></a></div>
 				<table class="table striped">
 					<thead>
 					<tr>
@@ -29,6 +31,7 @@
 							<td><?php echo '#'.$country['idcountry']; ?></td>
 							<td><?php echo $country['country']; ?></td>
 							<td>
+								<a href="<?php echo site_url('league/'.$country['idcountry']); ?>"class="glyphicon glyphicon-menu-hamburger"></a>
 								<a href="<?php echo site_url('country/view/'.$country['idcountry']); ?>"class="glyphicon glyphicon-eye-open"></a>
 								<a href="<?php echo site_url('country/edit/'.$country['idcountry']); ?>"class="glyphicon glyphicon-edit"></a>
 								<a href="<?php echo site_url('country/delete/'.$country['idcountry']); ?>"class="glyphicon glyphicon-trash" onclick="return confirm('Are you sure to delete?')"></a>
@@ -42,4 +45,6 @@
 			</div>
 		</div>
 	</div>
+	<h4>This project is still in alpha, so be patient please. ☺</h4>
+	<h4>We are fixing minor bugs everyday, but if you still find some, make sure to contact us via jozef.mihalik2@student.ukf.sk</h4>
 </div>
