@@ -10,7 +10,7 @@
 				</div>
 				<div class="form-group">
 					<label>Team name:</label>
-					<p><?php echo !empty($team['name'])? $team['name']:''; ?></p>
+					<p><?php echo !empty($team['tname'])? $team['tname']:''; ?></p>
 				</div>
 				<div class="form-group">
 					<label>Alias:</label>
@@ -25,8 +25,12 @@
 					<p><?php echo !empty($team['stadium'])? $team['stadium']:''; ?></p>
 				</div>
 				<div class="form-group">
-					<label>Alias:</label>
-					<p><?php echo !empty($team['league'])? $team['league']:''; ?></p>
+					<label>League:</label>
+					<p><?php echo !empty($team['lname'])? $team['lname']:''; ?></p>
+				</div>
+				<div class="form-group">
+					<label>City:</label>
+					<p><?php echo !empty($team['city'])? $team['city']:''; ?></p>
 				</div>
 
 			</div>

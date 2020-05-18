@@ -12,7 +12,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="panel panel-default">
-				<div class="panel-heading"><?php //echo $action; ?> Leagues <a href="<?php echo site_url('team/'); ?>" class="glyphicon glyphicon-arrow-left pull-right"></a></div>
+				<div class="panel-heading"><?php //echo $action; ?> Teams <a href="<?php echo site_url('team/'); ?>" class="glyphicon glyphicon-arrow-left pull-right"></a></div>
 				<div class="panel-body">
 					<form method="post" action="" class="form">
 
@@ -30,7 +30,7 @@
 
 						<div class="form-group">
 							<label for="title">Team establishment</label>
-							<input type="text" class="form-control" name="est" id="est" placeholder="Enter a year" value="<?php echo !empty($post['establishment'])?$post['establishment']:''; ?>">
+							<input type="text" class="form-control" name="establishment" id="establishment" placeholder="Enter a year" value="<?php echo !empty($post['establishment'])?$post['establishment']:''; ?>">
 							<?php echo form_error('establishment','<p class="help-block text-danger">','</p>'); ?>
 						</div>
 

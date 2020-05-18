@@ -32,7 +32,7 @@
 					<?php if(!empty($team)): foreach($team as $team): ?>
 						<tr>
 							<td><?php echo '#'.$team['idteam']; ?></td>
-							<td><?php echo $team['name']; ?></td>
+							<td><?php echo $team['tname']; ?></td>
 							<td><?php echo $team['alias']; ?></td>
 							<td>
 								<a href="<?php echo site_url('team/view/'.$team['idteam']); ?>"class="glyphicon glyphicon-eye-open"></a>

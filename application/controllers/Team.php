@@ -83,7 +83,7 @@ class Team extends CI_Controller
 			//validacia zaslanych dat
 			if($this->form_validation->run() == true){
 				//vlozenie dat
-				$insert = $this->League_model->insert($postData);
+				$insert = $this->Team_model->insert($postData);
 
 				if($insert){
 					$this->session->set_userdata('success_msg', 'League record successfully inserted.');
@@ -93,9 +93,11 @@ class Team extends CI_Controller
 				}
 			}
 		}
-		$data['post'] = $postData;
 		$data['league'] = $this->Team_model->NaplnDropdownLeague();
 		$data['vybrana_liga'] = '';
+		$data['city'] = $this->Team_model->NaplnDropdownCity();
+		$data['vybrane_mesto'] = '';
+		$data['post'] = $postData;
 		$data['title'] = 'Add new league';
 		$data['action'] = 'add';
 
@@ -148,6 +150,8 @@ class Team extends CI_Controller
 
 		$data['league'] = $this->Team_model->NaplnDropdownLeague();
 		$data['vybrana_liga'] = $postData['league_idleague'];
+		$data['city'] = $this->Team_model->NaplnDropdownCity();
+		$data['vybrane_mesto'] = $postData['city_idcity'];
 		$data['post'] = $postData;
 		$data['title'] = 'Aktualizovať údaje';
 		$data['action'] = 'edit';

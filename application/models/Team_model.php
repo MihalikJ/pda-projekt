@@ -9,16 +9,18 @@ class Team_model extends CI_Model {
 
 	function ShowTeam($id=""){
 		if(!empty($id)){
-			$this->db->select('idteam, team.name, alias, establishment, stadium, league_idleague, city_idcity')
-				->from('league')
-				->join('team', 'league.idleague = team.league_idleague')
-				->where('team.league_idleague',$id);
+			$this->db->select('idteam, team.name AS tname, alias, establishment, stadium, league.name AS lname, league_idleague, city, city_idcity')
+				->from('team')
+				->join('city', 'team.city_idcity = city.idcity')
+				->join('league', 'league_idleague = league.idleague')
+				->where('team.idteam',$id);
 			$query = $this->db->get();
 			return $query->row_array();
 		}else{
-			$this->db->select('idteam, team.name, alias, establishment, stadium, league_idleague, city_idcity')
-				->from('league')
-				->join('team', 'league.idleague = team.league_idleague');
+			$this->db->select('idteam, team.name AS tname, alias, establishment, stadium, league.name AS lname, league_idleague, city, city_idcity')
+				->from('team')
+				->join('city', 'team.city_idcity = city.idcity')
+				->join('league', 'league_idleague = league.idleague');
 			$query = $this->db->get();
 			return $query->result_array();
 		}
@@ -38,6 +40,22 @@ class Team_model extends CI_Model {
 				$dropdownlist[$dropdown->idleague] = $dropdown->name;
 			}
 			$dropdownlist[''] = 'Select a league';
+			return $dropdownlist;
+		}
+	}
+
+	public function NaplnDropdownCity($idcity = ""){
+		$this->db->order_by('city')
+			->select('idcity, city')
+			->from('city');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			$dropdowns = $query->result();
+			foreach ($dropdowns as $dropdown)
+			{
+				$dropdownlist[$dropdown->idcity] = $dropdown->city;
+			}
+			$dropdownlist[''] = 'Select a city';
 			return $dropdownlist;
 		}
 	}
