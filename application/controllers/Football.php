@@ -64,6 +64,7 @@ class Football extends CI_Controller {
 			//$crud->set_relation('salesRepEmployeeNumber','employees','lastName');
 			$crud->required_fields('country');
 
+			//obrazky nechame nepovinne
 			$crud->set_field_upload('flag','assets/uploads/files');
 			$output = $crud->render();
 
@@ -144,6 +145,9 @@ class Football extends CI_Controller {
 		$crud->set_theme('tablestrap');
 		$crud->set_table('country');
 		$crud->set_subject('Country');
+		$crud->required_fields('country');
+
+		$crud->set_field_upload('flag','assets/uploads/files');
 
 		$crud->set_crud_url_path(site_url(strtolower(__CLASS__."/".__FUNCTION__)),site_url(strtolower(__CLASS__."/multigrids")));
 
@@ -171,7 +175,7 @@ class Football extends CI_Controller {
 
 		$crud->required_fields('name','alias','establishment','stadium','league_idleague','city_idcity');
 
-		$crud->set_field_upload('file_url','assets/uploads/files');
+		$crud->set_field_upload('logo','assets/uploads/files');
 
 		$crud->set_crud_url_path(site_url(strtolower(__CLASS__."/".__FUNCTION__)),site_url(strtolower(__CLASS__."/multigrids")));
 
@@ -193,6 +197,7 @@ class Football extends CI_Controller {
 		$crud->display_as('country_idcountry','Country');
 		$crud->set_table('league');
 		$crud->set_subject('league');
+		$crud->required_fields('name','country_idcountry');
 
 		$crud->set_crud_url_path(site_url(strtolower(__CLASS__."/".__FUNCTION__)),site_url(strtolower(__CLASS__."/multigrids")));
 
@@ -214,6 +219,7 @@ class Football extends CI_Controller {
 		$crud->set_subject('city');
 		$crud->set_relation('country_idcountry','country','country');
 		$crud->display_as('country_idcountry','Country');
+		$crud->required_fields('city','country_idcountry');
 
 		$crud->set_crud_url_path(site_url(strtolower(__CLASS__."/".__FUNCTION__)),site_url(strtolower(__CLASS__."/multigrids")));
 
