@@ -33,6 +33,7 @@ class Football extends CI_Controller {
 	public function showTeam()
 	{
 			$crud = new grocery_CRUD();
+			//$crud->set_table_title('Teams');
 
 			$crud->set_theme('tablestrap');
 			$crud->set_table('team');

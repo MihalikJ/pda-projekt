@@ -29,7 +29,7 @@
 	var ajax_list_info_url = '<?php echo $ajax_list_info_url; ?>';
 	var unique_hash = '<?php echo $unique_hash; ?>';
 	var export_url = '<?php echo $export_url; ?>';
-
+	var table_title= '<?php echo $table_title?>';
 	var message_alert_delete = "<?php echo $this->l('alert_delete'); ?>";
 
 </script>
@@ -43,7 +43,7 @@ if($success_message !== null){?>
 	<div id="hidden-operations" class="hidden-operations"></div>
 	<div class="mDiv">
 		<div class="ftitle">
-			&nbsp;
+			&nbsp;<?php echo $table_title?>
 		</div>
 		<div title="<?php echo $this->l('minimize_maximize');?>" class="ptogtitle">
 			<span></span>
