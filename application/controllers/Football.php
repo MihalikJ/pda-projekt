@@ -46,7 +46,7 @@ class Football extends CI_Controller {
 
 			$crud->required_fields('name','alias','establishment','stadium','league_idleague','city_idcity');
 
-			$crud->set_field_upload('file_url','assets/uploads/files');
+			$crud->set_field_upload('logo','assets/uploads/files');
 
 			$output = $crud->render();
 
@@ -59,10 +59,12 @@ class Football extends CI_Controller {
 
 			$crud->set_theme('tablestrap');
 			$crud->set_table('country');
-			$crud->columns('country');
+			$crud->columns('country', 'flag');
 			$crud->set_subject('country');
 			//$crud->set_relation('salesRepEmployeeNumber','employees','lastName');
+			$crud->required_fields('country');
 
+			$crud->set_field_upload('flag','assets/uploads/files');
 			$output = $crud->render();
 
 			$this->_example_output($output);
@@ -79,6 +81,7 @@ class Football extends CI_Controller {
 			$crud->set_subject('league');
 			//$crud->unset_add();
 			//$crud->unset_delete();
+			$crud->required_fields('name','country_idcountry');
 
 			$output = $crud->render();
 
@@ -97,6 +100,7 @@ class Football extends CI_Controller {
 			//moze sa zist niekedy -funkcia pod tym
 			//$crud->callback_column('buyPrice',array($this,'valueToEuro'));
 
+			$crud->required_fields('city','country_idcountry');
 			$output = $crud->render();
 
 			$this->_example_output($output);
