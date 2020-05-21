@@ -112,7 +112,7 @@ class Team extends CI_Controller
 		$data = array();
 		//ziskanie dat z tabulky
 		//$postData = $this->Znamky_model->ZobrazZnamky($id);
-		$postData = $this->League_model->ShowLeague($id);
+		$postData = $this->Team_model->ShowTeam($id);
 
 		//zistenie, ci bola zaslana poziadavka na aktualizaciu
 		if($this->input->post('postSubmit')){

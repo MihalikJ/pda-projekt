@@ -15,7 +15,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="panel panel-default ">
-				<div class="panel-heading">List of cities
+				<div class="panel-heading text-center">List of cities
 					<a href="<?php echo site_url('city/add/'); ?>" class="glyphicon glyphicon-plus pull-right" ></a>
 					<a href="<?php echo site_url('team/'); ?>" class="glyphicon glyphicon-arrow-left pull-left" ></a>
 				</div>

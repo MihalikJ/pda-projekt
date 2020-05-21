@@ -16,7 +16,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="panel panel-default ">
-				<div class="panel-heading">Countries <a href="<?php echo site_url('country/add/'); ?>" class="glyphicon glyphicon-plus-sign pull-right" ></a></div>
+				<div class="panel-heading text-center">Countries <a href="<?php echo site_url('country/add/'); ?>" class="glyphicon glyphicon-plus-sign pull-right" ></a></div>
 				<table class="table striped">
 					<thead>
 					<tr>
