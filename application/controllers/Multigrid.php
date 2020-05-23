@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Football extends CI_Controller {
+class Multigrid extends CI_Controller {
 
 	public function __construct()
 	{
@@ -15,16 +15,10 @@ class Football extends CI_Controller {
 	public function _example_output($output = null)
 	{
 		$this->load->view('templates/header');
-		$this->load->view('football.php',(array)$output);
+		$this->load->view('multigrid.php',(array)$output);
 		$this->load->view('templates/footer');
 	}
 
-	public function offices()
-	{
-		$output = $this->grocery_crud->render();
-
-		$this->_example_output($output);
-	}
 
 	public function index()
 	{
@@ -32,87 +26,6 @@ class Football extends CI_Controller {
 	}
 
 
-	public function showTeam()
-	{
-			$crud = new grocery_CRUD();
-			//$crud->set_table_title('Teams');
-
-			$crud->set_theme('tablestrap');
-			$crud->set_table('team');
-			$crud->set_relation('league_idleague','league','name');
-			$crud->display_as('league_idleague','League');
-			$crud->set_relation('city_idcity','city','city');
-			$crud->display_as('city_idcity','City');
-			//$crud->display_as('officeCode','Office City');
-			$crud->set_subject('Team');
-
-			$crud->required_fields('name','alias','establishment','stadium','league_idleague','city_idcity');
-
-			$crud->set_field_upload('logo','assets/uploads/files');
-
-			$output = $crud->render();
-
-			$this->_example_output($output);
-	}
-
-	public function showCountry()
-	{
-			$crud = new grocery_CRUD();
-
-			$crud->set_theme('tablestrap');
-			$crud->set_table('country');
-			$crud->columns('country', 'flag');
-			$crud->set_subject('country');
-			//$crud->set_relation('salesRepEmployeeNumber','employees','lastName');
-			$crud->required_fields('country');
-
-			//obrazky nechame nepovinne
-			$crud->set_field_upload('flag','assets/uploads/files');
-			$output = $crud->render();
-
-			$this->_example_output($output);
-	}
-
-	public function showLeague()
-	{
-			$crud = new grocery_CRUD();
-
-			$crud->set_theme('tablestrap');
-			$crud->set_relation('country_idcountry','country','{country}');
-			$crud->display_as('country_idcountry','Country');
-			$crud->set_table('league');
-			$crud->set_subject('league');
-			//$crud->unset_add();
-			//$crud->unset_delete();
-			$crud->required_fields('name','country_idcountry');
-
-			$output = $crud->render();
-
-			$this->_example_output($output);
-	}
-
-	public function showCity()
-	{
-			$crud = new grocery_CRUD();
-
-			$crud->set_theme('tablestrap');
-			$crud->set_table('city');
-			$crud->set_subject('city');
-			$crud->set_relation('country_idcountry','country','country');
-			$crud->display_as('country_idcountry','Country');
-			//moze sa zist niekedy -funkcia pod tym
-			//$crud->callback_column('buyPrice',array($this,'valueToEuro'));
-
-			$crud->required_fields('city','country_idcountry');
-			$output = $crud->render();
-
-			$this->_example_output($output);
-	}
-
-	public function valueToEuro($value, $row)
-	{
-		return $value.' &euro;';
-	}
 
 
 	function multigrids()
@@ -134,9 +47,9 @@ class Football extends CI_Controller {
 		$output = "<h1>Table Country</h1>".$output1->output."<h1>Table League</h1>".$output2->output."<h1>Table Team</h1>".$output3->output."<h1>Table City</h1>".$output4->output;
 
 		$this->_example_output((object)array(
-				'js_files' => $js_files,
-				'css_files' => $css_files,
-				'output'	=> $output
+			'js_files' => $js_files,
+			'css_files' => $css_files,
+			'output'	=> $output
 		));
 	}
 
