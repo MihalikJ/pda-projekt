@@ -88,7 +88,10 @@ class Football extends CI_Controller {
 			$crud->columns('country', 'flag');
 			$crud->set_subject('country');
 			//$crud->set_relation('salesRepEmployeeNumber','employees','lastName');
-			$crud->required_fields('country');
+			$crud->set_relation('capital_city_id','city','city');
+			$crud->display_as('capital_city_id','Capital city');
+			$crud->unset_columns('capital_city_id');
+			$crud->required_fields('country','capital_city_id');
 
 			$crud->unset_add();
 			$crud->unset_delete();
@@ -162,9 +165,11 @@ class Football extends CI_Controller {
 
 		$output4 = $this->cityTable();
 
-		$js_files = $output1->js_files + $output2->js_files + $output3->js_files + $output4->js_files;
-		$css_files = $output1->css_files + $output2->css_files + $output3->css_files + $output4->css_files;
-		$output = "<h1>Table Country</h1>".$output1->output."<h1>Table League</h1>".$output2->output."<h1>Table Team</h1>".$output3->output."<h1>Table City</h1>".$output4->output;
+		$output5 = $this->cityMatches();
+
+		$js_files = $output1->js_files + $output2->js_files + $output3->js_files + $output4->js_files + $output5->js_files;
+		$css_files = $output1->css_files + $output2->css_files + $output3->css_files + $output4->css_files + $output5->css_files;
+		$output = "<h1>Table Country</h1>".$output1->output."<h1>Table League</h1>".$output2->output."<h1>Table Team</h1>".$output3->output."<h1>Table City</h1>".$output4->output."<h1>Table Matches</h1>".$output5->output;
 
 		$this->_example_output((object)array(
 				'js_files' => $js_files,
@@ -265,6 +270,34 @@ class Football extends CI_Controller {
 		} else {
 			return $output;
 		}
+	}
+
+	public function cityMatches(){
+
+		$crud = new grocery_CRUD();
+		//$crud->set_table_title('Teams');
+
+		$crud->set_theme('tablestrap');
+		$crud->set_table('match');
+		$crud->set_relation('home_team_id','team','name');
+		$crud->display_as('home_team_id','Home Team');
+		$crud->set_relation('away_team_id','team','name');
+		$crud->display_as('away_team_id','Away Team');
+		//$crud->display_as('officeCode','Office City');
+
+		$crud->required_fields('home_team_id','away_team_id','result','attendance');
+
+		//$crud->set_field_upload('logo','assets/uploads/files');
+		$crud->set_crud_url_path(site_url(strtolower(__CLASS__."/".__FUNCTION__)),site_url(strtolower(__CLASS__."/multigrids")));
+
+		$output = $crud->render();
+
+		if($crud->getState() != 'list') {
+			$this->_example_output($output);
+		} else {
+			return $output;
+		}
+
 	}
 
 

@@ -14,7 +14,6 @@ class Login extends CI_Controller {
 
 	public function _example_output($output = null)
 	{
-		$this->load->view('templates/header');
 		$this->load->view('login.php',(array)$output);
 		$this->load->view('templates/footer');
 	}

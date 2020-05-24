@@ -133,7 +133,7 @@
 <div class="grad"></div>
 <div class="header">
 
-	<a href='<?php echo site_url('football/showCountry')?>'><div>Football<span>Tables</span></div></a>
+	<a href='<?php echo site_url('football/showCountry')?>'><div>Football<span> Tables</span></div></a>
 </div>
 <br>
 <form name="login">

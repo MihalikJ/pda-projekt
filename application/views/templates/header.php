@@ -5,7 +5,8 @@
 
 	<!-- <script type="text/js" src="<?php echo base_url("js/pagejs.js" ) ;?>"></script> -->
 
-
+	<h1>Welcome to Football League Overview page. </h1>
+	<h1>Feel free to start browsing the datas!</h1>
 
 	<nav>
 		<ul>
@@ -30,8 +31,6 @@
 			</li>
 		</ul>
 	</nav>
-
-
 
 
 </head>
