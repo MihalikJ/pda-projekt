@@ -22,7 +22,11 @@
 				<a href='<?php echo site_url('football/showTeam')?>'>Teams</a>
 			</li>
 			<li>
-				<a href='<?php echo site_url('multigrid/multigrids')?>'>All tables</a>
+				<a href='<?php echo site_url('football/showMatches')?>'>Matches</a>
+			</li>
+
+			<li>
+				<a href='<?php echo site_url('login/')?>'>Admin</a>
 			</li>
 		</ul>
 	</nav>

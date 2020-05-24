@@ -19,13 +19,6 @@ class Football extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
-	public function offices()
-	{
-		$output = $this->grocery_crud->render();
-
-		$this->_example_output($output);
-	}
-
 	public function index()
 	{
 		$this->_example_output((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
@@ -46,6 +39,10 @@ class Football extends CI_Controller {
 			//$crud->display_as('officeCode','Office City');
 			$crud->set_subject('Team');
 
+			$crud->unset_add();
+			$crud->unset_delete();
+			$crud->unset_edit();
+
 			$crud->required_fields('name','alias','establishment','stadium','league_idleague','city_idcity');
 
 			$crud->set_field_upload('logo','assets/uploads/files');
@@ -53,6 +50,33 @@ class Football extends CI_Controller {
 			$output = $crud->render();
 
 			$this->_example_output($output);
+	}
+
+	public function showMatches()
+	{
+		$crud = new grocery_CRUD();
+		//$crud->set_table_title('Teams');
+
+		$crud->set_theme('tablestrap');
+		$crud->set_table('match');
+		$crud->set_relation('home_team_id','team','name');
+		$crud->display_as('home_team_id','Home Team');
+		$crud->set_relation('away_team_id','team','name');
+		$crud->display_as('away_team_id','Away Team');
+		//$crud->display_as('officeCode','Office City');
+		$crud->set_subject('Match');
+
+		$crud->unset_add();
+		$crud->unset_delete();
+		$crud->unset_edit();
+
+		$crud->required_fields('home_team_id','away_team_id','result','attendance');
+
+		//$crud->set_field_upload('logo','assets/uploads/files');
+
+		$output = $crud->render();
+
+		$this->_example_output($output);
 	}
 
 	public function showCountry()
@@ -65,6 +89,10 @@ class Football extends CI_Controller {
 			$crud->set_subject('country');
 			//$crud->set_relation('salesRepEmployeeNumber','employees','lastName');
 			$crud->required_fields('country');
+
+			$crud->unset_add();
+			$crud->unset_delete();
+			$crud->unset_edit();
 
 			//obrazky nechame nepovinne
 			$crud->set_field_upload('flag','assets/uploads/files');
@@ -82,8 +110,9 @@ class Football extends CI_Controller {
 			$crud->display_as('country_idcountry','Country');
 			$crud->set_table('league');
 			$crud->set_subject('league');
-			//$crud->unset_add();
-			//$crud->unset_delete();
+			$crud->unset_add();
+			$crud->unset_delete();
+			$crud->unset_edit();
 			$crud->required_fields('name','country_idcountry');
 
 			$output = $crud->render();
@@ -102,6 +131,10 @@ class Football extends CI_Controller {
 			$crud->display_as('country_idcountry','Country');
 			//moze sa zist niekedy -funkcia pod tym
 			//$crud->callback_column('buyPrice',array($this,'valueToEuro'));
+
+			$crud->unset_add();
+			$crud->unset_delete();
+			$crud->unset_edit();
 
 			$crud->required_fields('city','country_idcountry');
 			$output = $crud->render();
