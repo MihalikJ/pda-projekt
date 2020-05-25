@@ -1,0 +1,10 @@
+Dobrý deň prajem, 
+vybral som si vlastnú tému - Futbalové tabuľky, nakoľko som si vedel okamžite 
+predstaviť dané vzťahy medzi tabuľkami.
+Ďaľej som to poňal tak, že tieto tabuľky slúžia len ako informačné pre daných používateľov, tzn.
+že CRUD rozhranie má sprístupnené len admin po prihlásení (meno: admin,  pw: admin), preto som 
+vo všetkých tabuľkách, ku ktorým sa je možné dostať z menu, unsetol crud možnosti.
+V projekte nechávam, aj keď by to išlo aj bez nich, moje vlastné MVC, ktoré som používal 
+pokiaľ som sa nerozhodol prejsť na GROCERY CRUD.
+Taktiež prikladám aj txt súbor football s naplnenou DB.
+To by malo byť všetko, prajem pekný deň ☺
