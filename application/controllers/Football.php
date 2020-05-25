@@ -70,7 +70,7 @@ class Football extends CI_Controller {
 		$crud->unset_delete();
 		$crud->unset_edit();
 
-		$crud->required_fields('home_team_id','away_team_id','result','attendance');
+		$crud->required_fields('home_team_id','away_team_id','result','attendance','date');
 
 		//$crud->set_field_upload('logo','assets/uploads/files');
 

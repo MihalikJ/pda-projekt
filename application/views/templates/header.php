@@ -25,6 +25,9 @@
 			<li>
 				<a href='<?php echo site_url('football/showMatches')?>'>Matches</a>
 			</li>
+			<li>
+				<a href='<?php echo site_url('calendar/index')?>'>Calendar(BETA)</a>
+			</li>
 
 			<li>
 				<a href='<?php echo site_url('login/')?>'>Admin</a>

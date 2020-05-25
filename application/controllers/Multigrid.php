@@ -62,7 +62,7 @@ class Multigrid extends CI_Controller {
 		$crud->set_theme('tablestrap');
 		$crud->set_table('country');
 		$crud->set_subject('Country');
-		$crud->required_fields('country','capital_city');
+		$crud->required_fields('country','capital_city_id');
 		$crud->set_relation('capital_city_id','city','city');
 		$crud->display_as('capital_city_id','Capital city');
 		$crud->unset_columns('capital_city_id');
@@ -165,7 +165,7 @@ class Multigrid extends CI_Controller {
 		$crud->display_as('away_team_id','Away Team');
 		//$crud->display_as('officeCode','Office City');
 
-		$crud->required_fields('home_team_id','away_team_id','result','attendance');
+		$crud->required_fields('home_team_id','away_team_id','result','attendance','date');
 
 		//$crud->set_field_upload('logo','assets/uploads/files');
 		$crud->set_crud_url_path(site_url(strtolower(__CLASS__."/".__FUNCTION__)),site_url(strtolower(__CLASS__."/multigrids")));
